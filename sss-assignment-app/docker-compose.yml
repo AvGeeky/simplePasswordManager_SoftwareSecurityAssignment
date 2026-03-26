@@ -1,0 +1,17 @@
+
+services:
+  app:
+    build: .
+    container_name: secure-pword-mgr
+    ports:
+      - "8080:8080"
+
+    env_file:
+      - .env
+
+    environment:
+      - TZ=Asia/Kolkata
+
+    restart: unless-stopped
+    volumes:
+      - ./target/secure.jar:/app/app.jar
